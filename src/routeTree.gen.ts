@@ -10,33 +10,68 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EmailGeneratorRouteImport } from './routes/email-generator'
+import { Route as MeetingSummarizerRouteImport } from './routes/meeting-summarizer'
+import { Route as SmartPlannerRouteImport } from './routes/smart-planner'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailGeneratorRoute = EmailGeneratorRouteImport.update({
+  id: '/email-generator',
+  path: '/email-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetingSummarizerRoute = MeetingSummarizerRouteImport.update({
+  id: '/meeting-summarizer',
+  path: '/meeting-summarizer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmartPlannerRoute = SmartPlannerRouteImport.update({
+  id: '/smart-planner',
+  path: '/smart-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/meeting-summarizer': typeof MeetingSummarizerRoute
+  '/smart-planner': typeof SmartPlannerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/meeting-summarizer': typeof MeetingSummarizerRoute
+  '/smart-planner': typeof SmartPlannerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/meeting-summarizer': typeof MeetingSummarizerRoute
+  '/smart-planner': typeof SmartPlannerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/email-generator' | '/meeting-summarizer' | '/smart-planner'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/email-generator' | '/meeting-summarizer' | '/smart-planner'
+  id:
+    | '__root__'
+    | '/'
+    | '/email-generator'
+    | '/meeting-summarizer'
+    | '/smart-planner'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmailGeneratorRoute: typeof EmailGeneratorRoute
+  MeetingSummarizerRoute: typeof MeetingSummarizerRoute
+  SmartPlannerRoute: typeof SmartPlannerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +83,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email-generator': {
+      id: '/email-generator'
+      path: '/email-generator'
+      fullPath: '/email-generator'
+      preLoaderRoute: typeof EmailGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meeting-summarizer': {
+      id: '/meeting-summarizer'
+      path: '/meeting-summarizer'
+      fullPath: '/meeting-summarizer'
+      preLoaderRoute: typeof MeetingSummarizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-planner': {
+      id: '/smart-planner'
+      path: '/smart-planner'
+      fullPath: '/smart-planner'
+      preLoaderRoute: typeof SmartPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmailGeneratorRoute: EmailGeneratorRoute,
+  MeetingSummarizerRoute: MeetingSummarizerRoute,
+  SmartPlannerRoute: SmartPlannerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
