@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# KasiFlow AI Suite
+
+Build a modern dark mode dashboard called KasiFlow- AI Assistant for SA Hustlers. Sidebar: Dashboard, Email Generator, Meeting Summarizer, Smart planner. Dashboard has 3 cards for the 3 tools. Each tool has Input on left, Output on right with Copy button. Responsive for phone and laptop. Footer: Responsible AI-Review outputs before use.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://kasi-flow-buddy.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/677a1c2b-d75c-45b9-ac25-9bf61267c7b3).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
